@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV – Edoardo Pes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0d1b2a;
+            --text: #ffffff;
+            --accent: #4a9eff;
+            --col-left: 40%;
+            --col-right: 60%;
+            --pill-bg: #1b263b;
+            --pill-text: #e0e6ed;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+            gap: 30px;
+        }
+
+        .left {
+            flex: 1 1 var(--col-left);
+            max-width: var(--col-left);
+            background: #0f253d;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .right {
+            flex: 1 1 var(--col-right);
+            max-width: var(--col-right);
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 4px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        .header-title {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            margin: 4px 0;
+        }
+
+        .contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--pill-bg);
+            color: var(--pill-text);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 4px 6px 4px 0;
+        }
+
+        .lang-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid #1b263b;
+        }
+
+        .lang-level {
+            font-size: 0.85rem;
+            background: var(--pill-bg);
+            padding: 3px 10px;
+            border-radius: 12px;
+            color: var(--accent);
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 6px 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            .left,
+            .right {
+                max-width: 100%;
+                flex: 100%;
+            }
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .container {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT COLUMN -->
+        <div class="left">
+            <h1>Edoardo Pes</h1>
+            <div class="header-title">Law & Technology Student | Aspiring Cybersecurity Professional</div>
+
+            <div class="contact section">
+                <h2>Contact</h2>
+                <p>📧 <a href="mailto:pesedo05@gmail.com">pesedo05@gmail.com</a></p>
+                <p>📞 +39 389 194 6009</p>
+                <p>📍 Padova, Italy</p>
+                <p>🔗 <a href="https://linkedin.com/in/edoardo-pes-0a76623b2" target="_blank">LinkedIn</a></p>
+                <p>💻 <a href="https://github.com/pesedo00" target="_blank">GitHub</a></p>
+            </div>
+
+            <div class="education section">
+                <h2>Education</h2>
+
+                <h3>University of Padova</h3>
+                <p><strong>Bachelor's Degree in Law & Technology</strong> — in progress</p>
+                <p>Specialization: Digital Law, GDPR, Cybersecurity</p>
+                <p>Expected graduation: 2028</p>
+
+                <h3>Liceo Linguistico M. Grigoletti</h3>
+                <p>High School Diploma — 2024</p>
+            </div>
+
+            <div class="languages section">
+                <h2>Languages</h2>
+                <div class="lang-row">
+                    <span>🇮🇹 Italian</span>
+                    <span class="lang-level">Native</span>
+                </div>
+                <div class="lang-row">
+                    <span>🇬🇧 English</span>
+                    <span class="lang-level">B2</span>
+                </div>
+            </div>
+
+            <div class="cert section">
+                <h2>Certifications</h2>
+                <!-- Add certifications here when available -->
+                <!-- Examples:
+                <p>✅ Google Cybersecurity Certificate</p>
+                <p>✅ Cisco Introduction to Cybersecurity</p>
+                -->
+                <p style="font-style:italic; opacity:0.5; font-size:0.9rem;">Coming soon</p>
+            </div>
+
+            <div class="projects section">
+                <h2>Projects</h2>
+                <!-- Add projects here when available -->
+                <!-- Examples:
+                <p><strong>GDPR Analysis</strong> — University project on real cases</p>
+                <p><strong>Python Script</strong> — <a href="#">GitHub</a></p>
+                -->
+                <p style="font-style:italic; opacity:0.5; font-size:0.9rem;">Coming soon</p>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right">
+            <div class="summary section">
+                <h2>Profile</h2>
+                <p>
+                    Law & Technology student at the University of Padova with a solid understanding of GDPR,
+                    digital law, and cybersecurity fundamentals. Aiming to pursue an MSc in Cybersecurity,
+                    with hands-on experience in international environments and technical skills in Python.
+                    Passionate about information security applied to the European and Italian legal and
+                    regulatory framework.
+                </p>
+            </div>
+
+            <div class="experience section">
+                <h2>Experience</h2>
+
+                <h3>Logistics Coordinator — Sardegna Import</h3>
+                <p><em>Skovlunde, Denmark — October 2024 – September 2025</em></p>
+                <ul>
+                    <li>Managed daily logistics operations in an international environment</li>
+                    <li>Coordinated sales and promotion of food & beverage products in the Danish market</li>
+                    <li>Developed problem-solving and intercultural communication skills</li>
+                </ul>
+
+                <h3>Photographer & Sales Associate — Luca's Photo Studio</h3>
+                <p><em>2024</em></p>
+                <ul>
+                    <li>Supported sales processes and managed customer relationships</li>
+                    <li>Contributed to promotional campaigns to increase brand visibility</li>
+                </ul>
+            </div>
+
+            <div class="skills section">
+                <h2>Hard Skills</h2>
+                <div class="pill">Python Programming</div>
+                <div class="pill">GDPR & Digital Law</div>
+                <div class="pill">Cybersecurity Fundamentals</div>
+                <div class="pill">Human-Computer Interaction</div>
+                <div class="pill">Legal Tech</div>
+                <div class="pill">Logistics & Supply Chain</div>
+
+                <h2 style="margin-top:30px;">Soft Skills</h2>
+                <div class="pill">Effective Communication</div>
+                <div class="pill">Intercultural Teamwork</div>
+                <div class="pill">Problem Solving</div>
+                <div class="pill">Analytical Thinking</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

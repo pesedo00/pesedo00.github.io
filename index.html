@@ -1,261 +1,475 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV – Edoardo Pes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edoardo Pes — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f11;
+    --surface: #161719;
+    --border: #2a2b2f;
+    --accent: #c8a96e;
+    --accent2: #7ec8a9;
+    --text: #e8e6e0;
+    --muted: #888580;
+    --faint: #3a3a3f;
+  }
 
-    <style>
-        :root {
-            --bg: #0d1b2a;
-            --text: #ffffff;
-            --accent: #4a9eff;
-            --col-left: 40%;
-            --col-right: 60%;
-            --pill-bg: #1b263b;
-            --pill-text: #e0e6ed;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Inter", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 60px 20px;
+  }
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 40px;
-            max-width: 1200px;
-            margin: auto;
-            gap: 30px;
-        }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
 
-        .left {
-            flex: 1 1 var(--col-left);
-            max-width: var(--col-left);
-            background: #0f253d;
-            padding: 30px;
-            border-radius: 8px;
-        }
+  /* ─── HEADER ─── */
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 50px;
+    animation: fadeUp 0.6s ease both;
+  }
 
-        .right {
-            flex: 1 1 var(--col-right);
-            max-width: var(--col-right);
-            padding: 20px;
-        }
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(48px, 7vw, 78px);
+    line-height: 0.95;
+    letter-spacing: -2px;
+    color: var(--text);
+  }
 
-        h1 {
-            font-size: 2.4rem;
-            margin-bottom: 5px;
-        }
+  .name em {
+    font-style: italic;
+    color: var(--accent);
+  }
 
-        h2 {
-            color: var(--accent);
-            font-size: 1.4rem;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid var(--accent);
-            padding-bottom: 4px;
-        }
+  .tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 14px;
+  }
 
-        h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--accent);
-        }
+  .contacts {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 6px;
+  }
 
-        .header-title {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            margin-bottom: 20px;
-        }
+  .contacts a, .contacts span {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
 
-        .contact p {
-            margin: 4px 0;
-        }
+  .contacts a:hover { color: var(--accent); }
 
-        .contact a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+  /* ─── LAYOUT ─── */
+  .grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0 56px;
+  }
 
-        .contact a:hover {
-            text-decoration: underline;
-        }
+  /* ─── SECTION ─── */
+  .section {
+    display: contents;
+    animation: fadeUp 0.6s ease both;
+  }
 
-        .section {
-            margin-bottom: 25px;
-        }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 44px;
+    padding-bottom: 20px;
+    border-top: 1px solid var(--border);
+  }
 
-        .pill {
-            display: inline-block;
-            padding: 6px 12px;
-            background: var(--pill-bg);
-            color: var(--pill-text);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 4px 6px 4px 0;
-        }
+  .section-content {
+    padding-top: 44px;
+    padding-bottom: 20px;
+    border-top: 1px solid var(--border);
+  }
 
-        .lang-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 6px 0;
-            border-bottom: 1px solid #1b263b;
-        }
+  /* ─── PROFILE ─── */
+  .profile-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #c0bdb6;
+    max-width: 540px;
+  }
 
-        .lang-level {
-            font-size: 0.85rem;
-            background: var(--pill-bg);
-            padding: 3px 10px;
-            border-radius: 12px;
-            color: var(--accent);
-        }
+  /* ─── ENTRY ─── */
+  .entry {
+    margin-bottom: 28px;
+  }
 
-        ul {
-            padding-left: 18px;
-            margin: 6px 0;
-        }
+  .entry:last-child { margin-bottom: 0; }
 
-        ul li {
-            margin-bottom: 5px;
-            font-size: 0.95rem;
-        }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 4px;
+  }
 
-        @media (max-width: 900px) {
-            .left,
-            .right {
-                max-width: 100%;
-                flex: 100%;
-            }
-        }
+  .entry-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
 
-        @media print {
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+  .entry-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 
-            .container {
-                padding: 0;
-            }
-        }
-    </style>
+  .entry-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  .entry ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .entry ul li {
+    font-size: 13.5px;
+    color: #a09c95;
+    line-height: 1.65;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  .entry ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--faint);
+    font-size: 12px;
+  }
+
+  .entry a {
+    color: var(--accent2);
+    text-decoration: none;
+  }
+
+  .entry a:hover { text-decoration: underline; }
+
+  /* ─── SKILLS ─── */
+  .skill-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .skill-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    padding-top: 2px;
+  }
+
+  .skill-items { color: #a09c95; }
+
+  /* ─── CERTS ─── */
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13.5px;
+    color: #a09c95;
+  }
+
+  .cert-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border: 1px solid var(--faint);
+    border-radius: 2px;
+    color: var(--muted);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  .cert-badge.pending {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--faint);
+    letter-spacing: 0.1em;
+  }
+
+  .print-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .print-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section:nth-child(1) .section-label,
+  .section:nth-child(1) .section-content { animation: fadeUp 0.5s ease 0.1s both; }
+  .section:nth-child(2) .section-label,
+  .section:nth-child(2) .section-content { animation: fadeUp 0.5s ease 0.15s both; }
+  .section:nth-child(3) .section-label,
+  .section:nth-child(3) .section-content { animation: fadeUp 0.5s ease 0.2s both; }
+  .section:nth-child(4) .section-label,
+  .section:nth-child(4) .section-content { animation: fadeUp 0.5s ease 0.25s both; }
+  .section:nth-child(5) .section-label,
+  .section:nth-child(5) .section-content { animation: fadeUp 0.5s ease 0.3s both; }
+  .section:nth-child(6) .section-label,
+  .section:nth-child(6) .section-content { animation: fadeUp 0.5s ease 0.35s both; }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: white; color: #111; padding: 0; }
+    :root {
+      --bg: white; --surface: white; --border: #ddd;
+      --accent: #8a6a30; --accent2: #2a7a5a;
+      --text: #111; --muted: #666; --faint: #ccc;
+    }
+    .print-btn { display: none; }
+    header { animation: none; }
+    .section-label, .section-content { animation: none; }
+    footer { animation: none; }
+  }
+</style>
 </head>
-
 <body>
+<div class="page">
 
-    <div class="container">
+  <header>
+    <div>
+      <h1 class="name">Edoardo<br><em>Pes</em></h1>
+      <p class="tagline">Diritto & Tecnologia · Cybersecurity · Legal Tech</p>
+    </div>
+    <div class="contacts">
+      <span>Padova, Italia</span>
+      <a href="mailto:pesedo05@gmail.com">pesedo05@gmail.com</a>
+      <a href="https://linkedin.com/in/edoardo-pes-0a76623b2" target="_blank">LinkedIn ↗</a>
+      <a href="https://github.com/pesedo00" target="_blank">GitHub ↗</a>
+    </div>
+  </header>
 
-        <!-- LEFT COLUMN -->
-        <div class="left">
-            <h1>Edoardo Pes</h1>
-            <div class="header-title">Studente di Diritto e Tecnologia</div>
+  <div class="grid">
 
-            <div class="contact section">
-                <h2>Contatti</h2>
-                <p>📧 <a href="mailto:pesedo05@gmail.com">pesedo05@gmail.com</a></p>
-                <p>📞 +39 389 194 6009</p>
-                <p>📍 Padova, Italia</p>
-                <p>🔗 <a href="https://linkedin.com/in/edoardo-pes-0a76623b2" target="_blank">LinkedIn</a></p>
-                <p>💻 <a href="https://github.com/pesedo00" target="_blank">GitHub</a></p>
-            </div>
-
-            <div class="education section">
-                <h2>Formazione</h2>
-
-                <h3>Università di Padova</h3>
-                <p><strong>Laurea Triennale in Diritto & Tecnologia</strong> — in corso</p>
-                <p>Specializzazione: Diritto Digitale, GDPR, Cybersecurity</p>
-                <p>Laurea prevista: 2028</p>
-
-                <h3>Liceo Linguistico M. Grigoletti</h3>
-                <p>Diploma — 2024</p>
-            </div>
-
-            <div class="languages section">
-                <h2>Lingue</h2>
-                <div class="lang-row">
-                    <span>🇮🇹 Italiano</span>
-                    <span class="lang-level">Madrelingua</span>
-                </div>
-                <div class="lang-row">
-                    <span>🇬🇧 Inglese</span>
-                    <span class="lang-level">B2</span>
-                </div>
-            </div>
-
-            <div class="cert section">
-                <h2>Certificazioni</h2>
-                <p style="font-style:italic; opacity:0.5; font-size:0.9rem;">In aggiornamento</p>
-            </div>
-
-            <div class="projects section">
-                <h2>Progetti</h2>
-                <p> <a href="https://github.com/pesedo00/budget-planner" target="_blank"><strong>Budget Planner</strong></a> — Un'app per la gestione delle finanze personali sviluppata in Python.</p>
-                <a href="https://pesedo00.github.io/gdpr-moveit-analysis" target="_blank"><strong>MOVEit 2023 — Analisi GDPR &amp; Supply Chain Breach</strong></a>
-                 — Case study legale e tecnico sullo sfruttamento zero-day di MOVEit Transfer (CVE-2023-34362) da parte del gruppo Cl0p, con focus su GDPR Art. 28/33/34 e responsabilità nella catena controller–processor–sub-processor.
-            </div>
-        </div>
-
-        <!-- RIGHT COLUMN -->
-        <div class="right">
-            <div class="summary section">
-                <h2>Profilo</h2>
-                <p>
-                    Studente di Diritto e Tecnologia all'Università di Padova con solida comprensione di GDPR,
-                    diritto digitale e cybersecurity fundamentals. Orientato al conseguimento di un MSc in
-                    Cybersecurity, con esperienza pratica in ambienti internazionali e competenze tecniche
-                    in Python. Appassionato di sicurezza informatica applicata al contesto legale e
-                    normativo europeo e italiano.
-                </p>
-            </div>
-
-            <div class="experience section">
-                <h2>Esperienza</h2>
-
-                <h3>Logistics Coordinator — Sardegna Import</h3>
-                <p><em>Skovlunde, Danimarca — Ottobre 2024 – Settembre 2025</em></p>
-                <ul>
-                    <li>Gestione delle operazioni logistiche quotidiane in contesto internazionale</li>
-                    <li>Coordinamento vendita e promozione prodotti food & beverage nel mercato danese</li>
-                    <li>Sviluppo di capacità di problem-solving e comunicazione interculturale</li>
-                </ul>
-
-                <h3>Photographer & Sales Associate — Luca's Photo Studio</h3>
-                <p><em>2024</em></p>
-                <ul>
-                    <li>Supporto ai processi di vendita e gestione della relazione con il cliente</li>
-                    <li>Contributo a campagne promozionali per aumentare la visibilità del brand</li>
-                </ul>
-            </div>
-
-            <div class="skills section">
-                <h2>Hard Skills</h2>
-                <div class="pill">Python Programming</div>
-                <div class="pill">GDPR & Digital Law</div>
-                <div class="pill">Cybersecurity Fundamentals</div>
-                <div class="pill">Human-Computer Interaction</div>
-                <div class="pill">Legal Tech</div>
-                <div class="pill">Logistics & Supply Chain</div>
-
-                <h2 style="margin-top:30px;">Soft Skills</h2>
-                <div class="pill">Comunicazione efficace</div>
-                <div class="pill">Teamwork interculturale</div>
-                <div class="pill">Problem solving</div>
-                <div class="pill">Pensiero analitico</div>
-            </div>
-        </div>
-
+    <!-- PROFILO -->
+    <div class="section">
+      <div class="section-label">Profilo</div>
+      <div class="section-content">
+        <p class="profile-text">
+          Studente di Diritto & Tecnologia all'Università di Padova, con focus su GDPR, diritto digitale e cybersecurity normativa. Esperienza pratica in Python e automazione con AI. Orientato a un MSc in Cybersecurity con profilo ibrido tecnico-legale.
+        </p>
+      </div>
     </div>
 
-</body>
+    <!-- FORMAZIONE -->
+    <div class="section">
+      <div class="section-label">Formazione</div>
+      <div class="section-content">
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Università di Padova</span>
+            <span class="entry-date">2025 — in corso</span>
+          </div>
+          <div class="entry-sub">Laurea Triennale in Diritto & Tecnologia — in corso</div>
+          <ul>
+            <li>GDPR & Privacy Law, Cybersecurity Fundamentals, HCI, Legal Tech</li>
+            <li>Obiettivo: MSc in Cybersecurity (profilo tecnico-legale)</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Liceo Linguistico M. Grigoletti</span>
+            <span class="entry-date">2024</span>
+          </div>
+          <div class="entry-sub">Diploma</div>
+        </div>
+      </div>
+    </div>
 
-</html>
+    <!-- COMPETENZE -->
+    <div class="section">
+      <div class="section-label">Competenze</div>
+      <div class="section-content">
+        <div class="skill-row">
+          <span class="skill-cat">Legale</span>
+          <span class="skill-items">GDPR, Diritto Digitale, Privacy by Design, NIS2</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Tecnico</span>
+          <span class="skill-items">Python, automazione con AI, Git & GitHub</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Lingue</span>
+          <span class="skill-items">Italiano (madrelingua), Inglese (B2)</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-cat">Strumenti</span>
+          <span class="skill-items">VS Code, GitHub, Google Workspace</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGETTI -->
+    <div class="section">
+      <div class="section-label">Progetti</div>
+      <div class="section-content">
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Budget Planner</span>
+            <span class="entry-date">Mar 2025</span>
+          </div>
+          <div class="entry-sub">Applicazione Python per gestione finanze personali</div>
+          <ul>
+            <li>Tracciamento entrate/uscite e report automatici in Python</li>
+            <li><a href="https://github.com/pesedo00/budget-planner" target="_blank">github.com/pesedo00/budget-planner ↗</a></li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">MOVEit Vulnerability Analysis</span>
+            <span class="entry-date">Mar 2025</span>
+          </div>
+          <div class="entry-sub">Analisi legale e tecnica della vulnerabilità CVE-2023-34362</div>
+          <ul>
+            <li>Studio del caso MOVEit Transfer: SQL injection, data breach e impatto normativo GDPR</li>
+            <li>Analisi delle responsabilità legali e degli obblighi di notifica ai sensi del GDPR</li>
+            <li><a href="https://pesedo00.github.io/gdpr-moveit-analysis/" target="_blank">pesedo00.github.io/gdpr-moveit-analysis ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESPERIENZA -->
+    <div class="section">
+      <div class="section-label">Esperienza</div>
+      <div class="section-content">
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Logistics Coordinator</span>
+            <span class="entry-date">Ott 2024 — Set 2025</span>
+          </div>
+          <div class="entry-sub">Sardegna Import · Skovlunde, Danimarca</div>
+          <ul>
+            <li>Gestione operativa in contesto internazionale</li>
+            <li>Coordinamento vendita nel mercato danese</li>
+            <li>Problem-solving e comunicazione interculturale</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Photographer & Sales Associate</span>
+            <span class="entry-date">Giu 2024 — Set 2024</span>
+          </div>
+          <div class="entry-sub">Luca's Photo Studio</div>
+          <ul>
+            <li>Supporto alle vendite e gestione della relazione con i clienti</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICAZIONI -->
+    <div class="section">
+      <div class="section-label">Certificazioni</div>
+      <div class="section-content">
+        <div class="cert-list">
+          <div class="cert-item">
+            <span class="cert-badge pending">in corso</span>
+            CS50P — Introduction to Python (Harvard / edX)
+          </div>
+          <div class="cert-item">
+            <span class="cert-badge pending">in corso</span>
+            Google Cybersecurity Certificate (Coursera)
+          </div>
+          <div class="cert-item">
+            <span class="cert-badge pending">prossimo</span>
+            Cisco Intro to Cybersecurity (NetAcad)
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>Edoardo Pes · CV �

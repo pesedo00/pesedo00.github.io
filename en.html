@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edoardo Pes — Resume</title>
+<link rel="alternate" hreflang="it" href="https://pesedo00.github.io/">
+<link rel="alternate" hreflang="en" href="https://pesedo00.github.io/en.html">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -43,7 +45,7 @@
     padding-bottom: 40px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 50px;
-    animation: fadeUp 0.6s ease both;
+    animation: fadeUp 0.6s ease 0.05s both;
   }
 
   .name {
@@ -87,6 +89,25 @@
 
   .contacts a:hover { color: var(--accent); }
 
+  .lang-switch {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 2px;
+    transition: all 0.2s;
+    align-self: flex-end;
+    margin-top: 4px;
+  }
+
+  .lang-switch:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
   /* ─── LAYOUT ─── */
   .grid {
     display: grid;
@@ -95,11 +116,6 @@
   }
 
   /* ─── SECTION ─── */
-  .section {
-    display: contents;
-    animation: fadeUp 0.6s ease both;
-  }
-
   .section-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
@@ -115,6 +131,14 @@
     padding-top: 44px;
     padding-bottom: 20px;
     border-top: 1px solid var(--border);
+  }
+
+  .section-label { opacity: 0; transform: translateY(16px); }
+  .section-content { opacity: 0; transform: translateY(16px); }
+
+  .section-label.visible,
+  .section-content.visible {
+    animation: fadeUp 0.5s ease forwards;
   }
 
   /* ─── PROFILE ─── */
@@ -250,7 +274,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    animation: fadeUp 0.6s ease 0.4s both;
+    animation: fadeUp 0.6s ease 0.5s both;
   }
 
   footer span {
@@ -285,31 +309,48 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .section:nth-child(1) .section-label,
-  .section:nth-child(1) .section-content { animation: fadeUp 0.5s ease 0.1s both; }
-  .section:nth-child(2) .section-label,
-  .section:nth-child(2) .section-content { animation: fadeUp 0.5s ease 0.15s both; }
-  .section:nth-child(3) .section-label,
-  .section:nth-child(3) .section-content { animation: fadeUp 0.5s ease 0.2s both; }
-  .section:nth-child(4) .section-label,
-  .section:nth-child(4) .section-content { animation: fadeUp 0.5s ease 0.25s both; }
-  .section:nth-child(5) .section-label,
-  .section:nth-child(5) .section-content { animation: fadeUp 0.5s ease 0.3s both; }
-  .section:nth-child(6) .section-label,
-  .section:nth-child(6) .section-content { animation: fadeUp 0.5s ease 0.35s both; }
-
   /* ─── PRINT ─── */
   @media print {
-    body { background: white; color: #111; padding: 0; }
+    body { background: white; color: #111; padding: 20px; }
     :root {
-      --bg: white; --surface: white; --border: #ddd;
-      --accent: #8a6a30; --accent2: #2a7a5a;
-      --text: #111; --muted: #666; --faint: #ccc;
+      --bg: white;
+      --surface: white;
+      --border: #ddd;
+      --accent: #8a6a30;
+      --accent2: #2a7a5a;
+      --text: #111;
+      --muted: #555;
+      --faint: #ccc;
     }
-    .print-btn { display: none; }
-    header { animation: none; }
-    .section-label, .section-content { animation: none; }
-    footer { animation: none; }
+    .print-btn, .lang-switch { display: none; }
+
+    header,
+    .section-label,
+    .section-content,
+    footer {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .cert-badge {
+      border: 1px solid #ccc;
+      color: #555;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cert-badge.pending {
+      border-color: #8a6a30;
+      color: #8a6a30;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .section-label {
+      color: #8a6a30;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
   }
 </style>
 </head>
@@ -326,171 +367,144 @@
       <a href="mailto:pesedo05@gmail.com">pesedo05@gmail.com</a>
       <a href="https://linkedin.com/in/edoardo-pes-0a76623b2" target="_blank">LinkedIn ↗</a>
       <a href="https://github.com/pesedo00" target="_blank">GitHub ↗</a>
+      <a href="/" class="lang-switch">IT ↗</a>
     </div>
   </header>
 
   <div class="grid">
 
     <!-- PROFILE -->
-    <div class="section">
-      <div class="section-label">Profile</div>
-      <div class="section-content">
-        <p class="profile-text">
-          Law & Technology student at the University of Padova, focused on GDPR, digital law, and cybersecurity regulation. Hands-on experience with Python and AI-assisted automation. Aiming for an MSc in Cybersecurity with a hybrid technical-legal profile.
-        </p>
-      </div>
+    <div class="section-label">Profile</div>
+    <div class="section-content">
+      <p class="profile-text">
+        Law &amp; Technology student at the University of Padova, focused on GDPR, digital law, and cybersecurity regulation. Hands-on experience in Python, AI automation, and regulatory enforcement analysis. Hybrid technical-legal profile targeting compliance, legal engineering, and legal tech roles in Northern Europe.
+      </p>
     </div>
 
     <!-- EDUCATION -->
-    <div class="section">
-      <div class="section-label">Education</div>
-      <div class="section-content">
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Università di Padova</span>
-            <span class="entry-date">2025 — ongoing</span>
-          </div>
-          <div class="entry-sub">BSc in Law & Technology — ongoing</div>
-          <ul>
-            <li>GDPR & Privacy Law, Cybersecurity Fundamentals, HCI, Legal Tech</li>
-            <li>Goal: MSc in Cybersecurity (technical-legal profile)</li>
-          </ul>
+    <div class="section-label">Education</div>
+    <div class="section-content">
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">University of Padova</span>
+          <span class="entry-date">2025 — ongoing</span>
         </div>
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Liceo Linguistico M. Grigoletti</span>
-            <span class="entry-date">2024</span>
-          </div>
-          <div class="entry-sub">High School Diploma — Languages</div>
+        <div class="entry-sub">BSc in Law &amp; Technology</div>
+        <ul>
+          <li>Coursework: GDPR &amp; Privacy Law, Cybersecurity, HCI, Legal Tech, Private Law, Economics</li>
+          <li>Digital Track (year 3) — pathway to MSc in Cybersecurity (LM-66)</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Liceo Linguistico M. Grigoletti</span>
+          <span class="entry-date">2024</span>
         </div>
+        <div class="entry-sub">High School Diploma — English, Russian, German</div>
       </div>
     </div>
 
     <!-- SKILLS -->
-    <div class="section">
-      <div class="section-label">Skills</div>
-      <div class="section-content">
-        <div class="skill-row">
-          <span class="skill-cat">Legal</span>
-          <span class="skill-items">GDPR, Digital Law, Privacy by Design, NIS2</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-cat">Technical</span>
-          <span class="skill-items">Python, AI-assisted automation, Git & GitHub</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-cat">Languages</span>
-          <span class="skill-items">Italian (native), English (B2)</span>
-        </div>
-        <div class="skill-row">
-          <span class="skill-cat">Tools</span>
-          <span class="skill-items">VS Code, GitHub, Google Workspace</span>
-        </div>
+    <div class="section-label">Skills</div>
+    <div class="section-content">
+      <div class="skill-row">
+        <span class="skill-cat">Legal</span>
+        <span class="skill-items">GDPR, AI Act, NIS2, Privacy by Design, enforcement analysis</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Technical</span>
+        <span class="skill-items">Python, Anthropic API, prompt engineering, Git &amp; GitHub</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Languages</span>
+        <span class="skill-items">Italian (native), English (B2), Danish (basic)</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Tools</span>
+        <span class="skill-items">VS Code, Notion, GitHub Pages, Google Workspace</span>
       </div>
     </div>
 
     <!-- PROJECTS -->
-    <div class="section">
-      <div class="section-label">Projects</div>
-      <div class="section-content">
+    <div class="section-label">Projects</div>
+    <div class="section-content">
 
-        <!-- 1 — gdpr-pdpa-checker -->
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">GDPR × PDPA Privacy Policy Analyzer</span>
-            <span class="entry-date">Apr 2026</span>
-          </div>
-          <div class="entry-sub">Cross-jurisdictional compliance tool — Python · GDPR · PDPA Singapore</div>
-          <ul>
-            <li>Analyses a privacy policy against 19 structured checks across 5 areas: purpose limitation, consent, retention, third-party sharing, cross-border transfers</li>
-            <li>Built in collaboration with Kairin Batrisyiah (Singapore) — EU/GDPR side by Edoardo Pes, SG/PDPA side by Kairin</li>
-            <li>Generates a side-by-side gap analysis HTML report; tested on Grab's privacy policy</li>
-            <li><a href="https://github.com/pesedo00/gdpr-pdpa-checker" target="_blank">github.com/pesedo00/gdpr-pdpa-checker ↗</a></li>
-          </ul>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">GDPR × PDPA Privacy Policy Analyzer</span>
+          <span class="entry-date">Apr 2026</span>
         </div>
-
-        <!-- 2 — eu-privacy-enforcement -->
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">EU Privacy Enforcement — GDPR Case Analysis</span>
-            <span class="entry-date">Apr 2026</span>
-          </div>
-          <div class="entry-sub">Running series of GDPR enforcement case analyses</div>
-          <ul>
-            <li>First case: Meta Platforms Ireland, DPC, €251M — Art. 25(1), 25(2), 33(3), 33(5)</li>
-            <li>Covers technical mechanism (token exploit), DPC legal reasoning, and proportionality assessment</li>
-            <li><a href="https://github.com/pesedo00/eu-privacy-enforcement" target="_blank">github.com/pesedo00/eu-privacy-enforcement ↗</a></li>
-          </ul>
-        </div>
-
-        <!-- 3 — MOVEit -->
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">MOVEit Vulnerability Analysis</span>
-            <span class="entry-date">Mar 2026</span>
-          </div>
-          <div class="entry-sub">Legal and technical analysis of CVE-2023-34362</div>
-          <ul>
-            <li>Case study on MOVEit Transfer: SQL injection, data breach, and GDPR regulatory impact</li>
-            <li>Analysis of legal liability and breach notification obligations under GDPR</li>
-            <li><a href="https://pesedo00.github.io/gdpr-moveit-analysis/" target="_blank">pesedo00.github.io/gdpr-moveit-analysis ↗</a></li>
-          </ul>
-        </div>
-
-        <!-- 4 — Budget Planner -->
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Budget Planner</span>
-            <span class="entry-date">Mar 2026</span>
-          </div>
-          <div class="entry-sub">Python app for personal finance management</div>
-          <ul>
-            <li>Income/expense tracking and automated reports built in Python</li>
-            <li><a href="https://github.com/pesedo00/budget-planner" target="_blank">github.com/pesedo00/budget-planner ↗</a></li>
-          </ul>
-        </div>
-
+        <div class="entry-sub">Cross-jurisdictional compliance tool — Python · GDPR · PDPA Singapore</div>
+        <ul>
+          <li>Analyses privacy policies against 19 structured checks across 5 areas: purpose limitation, consent, retention, third-party sharing, cross-border transfers</li>
+          <li>Built with Kairin Batrisyiah (Singapore) — EU/GDPR side by Edoardo Pes, SG/PDPA side by Kairin; tested on Grab's privacy policy</li>
+          <li>Generates side-by-side HTML gap analysis report; v2.0 in development with AI engine (Anthropic API)</li>
+          <li><a href="https://github.com/pesedo00/gdpr-pdpa-checker" target="_blank">github.com/pesedo00/gdpr-pdpa-checker ↗</a></li>
+        </ul>
       </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">EU Privacy Enforcement — GDPR Case Analysis</span>
+          <span class="entry-date">Apr 2026</span>
+        </div>
+        <div class="entry-sub">Running series of GDPR enforcement case analyses</div>
+        <ul>
+          <li>First case: Meta Platforms Ireland, DPC, €251M — Art. 25(1), 25(2), 33(3), 33(5)</li>
+          <li>Covers technical mechanism (token exploit), DPC legal reasoning, and proportionality assessment</li>
+          <li><a href="https://github.com/pesedo00/eu-privacy-enforcement" target="_blank">github.com/pesedo00/eu-privacy-enforcement ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">MOVEit Vulnerability Analysis</span>
+          <span class="entry-date">Mar 2026</span>
+        </div>
+        <div class="entry-sub">Legal and technical analysis of CVE-2023-34362</div>
+        <ul>
+          <li>SQL injection, data breach, and GDPR regulatory impact on the MOVEit Transfer case</li>
+          <li>Legal liability and breach notification obligations under GDPR Art. 33–34</li>
+          <li><a href="https://pesedo00.github.io/gdpr-moveit-analysis/" target="_blank">pesedo00.github.io/gdpr-moveit-analysis ↗</a></li>
+        </ul>
+      </div>
+
     </div>
 
     <!-- EXPERIENCE -->
-    <div class="section">
-      <div class="section-label">Experience</div>
-      <div class="section-content">
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Logistics Coordinator</span>
-            <span class="entry-date">Oct 2024 — Sep 2025</span>
-          </div>
-          <div class="entry-sub">Sardegna Import · Skovlunde, Denmark</div>
-          <ul>
-            <li>Day-to-day operations management in an international setting</li>
-            <li>Sales coordination in the Danish market</li>
-            <li>Problem-solving and cross-cultural communication</li>
-          </ul>
+    <div class="section-label">Experience</div>
+    <div class="section-content">
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Logistics Coordinator</span>
+          <span class="entry-date">Oct 2024 — Sep 2025</span>
         </div>
-        <div class="entry">
-          <div class="entry-header">
-            <span class="entry-title">Photographer & Sales Associate</span>
-            <span class="entry-date">Jun 2024 — Sep 2024</span>
-          </div>
-          <div class="entry-sub">Luca's Photo Studio</div>
-          <ul>
-            <li>Sales support and client relationship management</li>
-          </ul>
+        <div class="entry-sub">Sardegna Import · Skovlunde, Denmark</div>
+        <ul>
+          <li>Day-to-day operations in an international B2B environment (Danish market)</li>
+          <li>Commercial documentation and coordination with Italian and European suppliers</li>
+          <li>Client-facing communication with Danish customers in English</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Photographer &amp; Sales Associate</span>
+          <span class="entry-date">Jun 2024 — Sep 2024</span>
         </div>
+        <div class="entry-sub">Luca's Photo Studio</div>
+        <ul>
+          <li>Sales support and client relationship management</li>
+        </ul>
       </div>
     </div>
 
     <!-- CERTIFICATIONS -->
-    <div class="section">
-      <div class="section-label">Certifications</div>
-      <div class="section-content">
-        <div class="cert-list">
-          <div class="cert-item">
-            <span class="cert-badge pending">in progress</span>
-            CS50P — Introduction to Python (Harvard / edX)
-          </div>
+    <div class="section-label">Certifications</div>
+    <div class="section-content">
+      <div class="cert-list">
+        <div class="cert-item">
+          <span class="cert-badge pending">in progress</span>
+          CS50P — Introduction to Python (Harvard / edX)
         </div>
       </div>
     </div>
@@ -503,5 +517,16 @@
   </footer>
 
 </div>
+
+<script>
+  const elements = document.querySelectorAll('.section-label, .section-content');
+  const delays = [0.1, 0.1, 0.15, 0.15, 0.2, 0.2, 0.25, 0.25, 0.3, 0.3, 0.35, 0.35, 0.4, 0.4];
+
+  elements.forEach((el, i) => {
+    el.style.animationDelay = (delays[i] || 0.4) + 's';
+    el.classList.add('visible');
+  });
+</script>
+
 </body>
 </html>

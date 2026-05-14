@@ -266,6 +266,21 @@
     color: var(--accent);
   }
 
+  .cert-badge.completed {
+    border-color: var(--accent2);
+    color: var(--accent2);
+  }
+
+  .cert-item a {
+    color: #a09c95;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .cert-item a:hover {
+    color: var(--accent2);
+  }
+
   /* ─── FOOTER ─── */
   footer {
     margin-top: 60px;
@@ -345,6 +360,12 @@
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
+    .cert-badge.completed {
+      border-color: #2a7a5a;
+      color: #2a7a5a;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
 
     .section-label {
       color: #8a6a30;
@@ -413,7 +434,7 @@
       </div>
       <div class="skill-row">
         <span class="skill-cat">Technical</span>
-        <span class="skill-items">Python, Anthropic API, prompt engineering, Git &amp; GitHub</span>
+        <span class="skill-items">Python, SQL, Anthropic API, prompt engineering, Git &amp; GitHub</span>
       </div>
       <div class="skill-row">
         <span class="skill-cat">Languages</span>
@@ -503,8 +524,10 @@
     <div class="section-content">
       <div class="cert-list">
         <div class="cert-item">
-          <span class="cert-badge pending">in progress</span>
-          CS50P — Introduction to Python (Harvard / edX)
+          <span class="cert-badge completed">completed</span>
+          <a href="https://cs50.harvard.edu/certificates/c7d58bcd-556b-4a36-bd8a-9fd9f5259046" target="_blank">
+            CS50P — Introduction to Programming with Python (Harvard / edX) ↗
+          </a>
         </div>
       </div>
     </div>
